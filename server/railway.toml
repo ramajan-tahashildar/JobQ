@@ -1,0 +1,31 @@
+# Railway Configuration File for JobQ Backend
+# This file configures the build and deployment settings for Railway
+
+[build]
+# Use Nixpacks as the builder (default for Node.js)
+builder = "nixpacks"
+
+# Build command to install production dependencies
+buildCommand = "npm ci --only=production"
+
+[deploy]
+# Start command for the Node.js application
+startCommand = "node src/app.js"
+
+# Health check configuration
+# Railway will check this endpoint to ensure the service is healthy
+healthcheckPath = "/api/jobs/health"
+healthcheckTimeout = 100
+
+# Restart policy: restart on failure
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10
+
+# Watch paths for automatic deployments
+# Only trigger deployments when files in server/src change
+watchPatterns = [
+    "server/src/**",
+    "server/package.json",
+    "server/package-lock.json"
+]
+

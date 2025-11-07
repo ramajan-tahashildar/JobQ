@@ -16,10 +16,12 @@ const QUEUE_NAME = 'jobQueue';
 const POLL_INTERVAL = 2000; // 2 seconds
 
 // Ensure tmp directory exists
-const TMP_DIR = path.join(__dirname, '../../tmp');
+// Use environment variable or fallback to relative path
+const TMP_DIR = process.env.TMP_DIR || process.env.LOG_DIR || path.join(__dirname, '../../tmp');
 const ensureTmpDir = async () => {
     try {
         await fs.mkdir(TMP_DIR, { recursive: true });
+        logger.info(`Temporary directory set to: ${TMP_DIR}`);
     } catch (error) {
         logger.error('Error creating tmp directory:', error);
     }

@@ -370,20 +370,62 @@ server/
 
 ## 🚢 Deployment
 
-### Render / Railway / Fly.io
+### Deploy to Railway 🚂
+
+**Recommended hosting platform!** Railway makes it easy to deploy with MongoDB and Redis support.
+
+👉 **[Complete Railway Deployment Guide](RAILWAY_DEPLOYMENT_GUIDE.md)** - Step-by-step guide with your database connection strings
+
+**Deployment Options:**
+- **[Railway CLI Deployment](RAILWAY_CLI_DEPLOYMENT.md)** - Deploy via command line (faster, automatable)
+- **[Railway Dashboard Guide](RAILWAY_DEPLOYMENT_GUIDE.md)** - Deploy via web interface (easier for beginners)
+
+**Other Guides:**
+- **[Railway Deployment Guide](RAILWAY_DEPLOYMENT.md)** - General deployment guide
+- **[Railway with External Databases](RAILWAY_EXTERNAL_DATABASES.md)** - Using external databases
+
+**Quick Overview:**
+1. Connect your GitHub repository to Railway (or use CLI)
+2. Configure web service (API) and worker service
+3. Set environment variables (MongoDB Atlas + DragonflyDB connection strings)
+4. Deploy - Railway automatically deploys on git push (or use `railway up`)
+
+**Quick CLI Deploy:**
+```bash
+# Install Railway CLI
+npm install -g @railway/cli
+
+# Login
+railway login
+
+# Set variables and deploy
+cd server
+railway variables --set "MONGO_URI=your-mongodb-uri"
+railway variables --set "REDIS_URL=your-redis-url"
+railway up
+```
+
+### Other Platforms (Fly.io / Heroku / Render)
 
 1. Set environment variables in your hosting platform
-2. Configure build command: `npm install`
-3. Configure start command: `npm start`
-4. For worker, deploy as separate service with: `npm run worker`
+2. Configure build command: `cd server && npm ci --only=production`
+3. Configure start command: `cd server && node src/app.js`
+4. For worker, deploy as separate service with: `cd server && node src/worker/jobWorker.js`
 
 ### Environment Variables for Production
 
 ```env
 NODE_ENV=production
-MONGO_URI=<your-mongodb-atlas-uri>
-REDIS_URL=<your-redis-hosted-url>
+PORT=3000
+MONGO_URI=<your-mongodb-connection-string>
+REDIS_URL=<your-redis-connection-string>
+REDIS_HOST=<redis-host>  # Optional if REDIS_URL is set
+REDIS_PORT=<redis-port>  # Optional if REDIS_URL is set
 JWT_SECRET=<strong-random-secret>
+JWT_EXPIRE=7d
+LOG_LEVEL=info
+LOG_DIR=/tmp/logs
+TMP_DIR=/tmp
 ```
 
 ## 🛠️ Development
