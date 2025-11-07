@@ -569,3 +569,5 @@
 {"level":"info","message":"Job created: edaaf192-7062-4bbd-b48a-2fab4758e2a8 by user 690e071ee003a1fa27af8b5d","service":"task-queue-api","timestamp":"2025-11-07 20:48:30"}
 {"ip":"::1","level":"info","message":"GET /api/jobs","service":"task-queue-api","timestamp":"2025-11-07 20:48:34","userAgent":"PostmanRuntime/7.49.0"}
 {"ip":"::1","level":"info","message":"GET /api/jobs/health","service":"task-queue-api","timestamp":"2025-11-07 20:49:07","userAgent":"PostmanRuntime/7.49.0"}
+{"level":"info","message":"Received SIGINT, shutting down gracefully...","service":"task-queue-api","timestamp":"2025-11-07 21:23:51"}
+{"level":"info","message":"Redis connection closed","service":"task-queue-api","timestamp":"2025-11-07 21:23:51"}
