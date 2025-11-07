@@ -1,0 +1,38 @@
+{
+  "name": "task-queue-api",
+  "version": "1.0.0",
+  "description": "Distributed Job Queue System with Redis, MongoDB, and Docker",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "worker": "node src/worker/jobWorker.js",
+    "dev": "node --watch src/app.js",
+    "dev:worker": "node --watch src/worker/jobWorker.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "job-queue",
+    "redis",
+    "mongodb",
+    "docker",
+    "ci-cd"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0",
+    "redis": "^4.6.11",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^4.7.1",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
+

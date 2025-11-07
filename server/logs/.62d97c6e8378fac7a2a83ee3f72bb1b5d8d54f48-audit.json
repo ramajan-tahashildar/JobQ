@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/ramajanallabhaksh/Desktop/PWORK/Personal-project/JobQ/server/logs/.62d97c6e8378fac7a2a83ee3f72bb1b5d8d54f48-audit.json",
+    "files": [
+        {
+            "date": 1762523320302,
+            "name": "/home/ramajanallabhaksh/Desktop/PWORK/Personal-project/JobQ/server/logs/combined-2025-11-07.log",
+            "hash": "71899c1d995ca77c17278e3f935a3c9674839364efe5a9f4bb93b277327ec782"
+        }
+    ],
+    "hashType": "sha256"
+}
