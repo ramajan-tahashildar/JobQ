@@ -1,16 +1,18 @@
 # Railway Configuration File for JobQ Backend
-# This file configures the build and deployment settings for Railway
+# This file is in the project root for Railway to detect it
+# Since the root directory is set to "server", Railway will use settings from server/railway.toml if it exists
+# Otherwise, this file will be used
 
 [build]
 # Use Nixpacks as the builder (default for Node.js)
 builder = "nixpacks"
 
-# Build command to install production dependencies
-buildCommand = "npm ci --only=production"
+# Build command - Railway will run this from the server directory
+buildCommand = "cd server && npm ci --only=production"
 
 [deploy]
-# Start command for the Node.js application
-startCommand = "node src/app.js"
+# Start command - Railway will run this from the server directory
+startCommand = "cd server && node src/app.js"
 
 # Health check configuration
 # Railway will check this endpoint to ensure the service is healthy
@@ -20,12 +22,4 @@ healthcheckTimeout = 100
 # Restart policy: restart on failure
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 10
-
-# Watch paths for automatic deployments
-# Only trigger deployments when files in server/src change
-watchPatterns = [
-    "server/src/**",
-    "server/package.json",
-    "server/package-lock.json"
-]
 
