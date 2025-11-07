@@ -58,7 +58,7 @@ export const connectRedis = async (maxRetries = 5, retryDelay = 2000) => {
         return redisClient;
     }
 
-    const redisUrl = process.env.REDIS_URL || `redis://${process.env.REDIS_HOST || 'localhost'}:${process.env.REDIS_PORT || 8001}`;
+    const redisUrl = process.env.REDIS_URL || `redis://${process.env.REDIS_HOST || 'localhost'}:${process.env.REDIS_PORT || 6379}`;
 
     logger.info(`Attempting to connect to Redis at: ${redisUrl}`);
 
