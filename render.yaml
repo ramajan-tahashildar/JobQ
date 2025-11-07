@@ -73,5 +73,4 @@ databases:
   # Redis Database
   - name: jobq-redis
     plan: free  # Change to 'starter' for production
-    maxmemoryPolicy: allkeys-lru
 
