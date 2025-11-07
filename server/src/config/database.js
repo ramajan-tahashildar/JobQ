@@ -143,7 +143,7 @@ export const connectRedis = async (maxRetries = 5, retryDelay = 2000) => {
         return redisClient;
     }
 
-    const redisUrl = process.env.REDIS_URL || `redis://${process.env.REDIS_HOST || 'localhost'}:${process.env.REDIS_PORT || 6379}`;
+    const redisUrl = process.env.REDIS_URL || `redis://${process.env.REDIS_HOST || 'localhost'}:${process.env.REDIS_PORT || 6385}`;
 
     // Log connection info without exposing password
     const logUrl = redisUrl.includes('@')

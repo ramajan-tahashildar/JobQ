@@ -1,18 +1,17 @@
 # Railway Configuration File for JobQ Backend
-# This file is in the project root for Railway to detect it
-# Since the root directory is set to "server", Railway will use settings from server/railway.toml if it exists
-# Otherwise, this file will be used
+# Since the root directory is set to "server", Railway executes commands from the server directory
+# So we don't need "cd server &&" - Railway is already in the server directory
 
 [build]
 # Use Nixpacks as the builder (default for Node.js)
 builder = "nixpacks"
 
-# Build command - Railway will run this from the server directory
-buildCommand = "cd server && npm ci --only=production"
+# Build command - Railway runs this from the server directory (root directory = "server")
+buildCommand = "npm ci --only=production"
 
 [deploy]
-# Start command - Railway will run this from the server directory
-startCommand = "cd server && node src/app.js"
+# Start command - Railway runs this from the server directory
+startCommand = "node src/app.js"
 
 # Health check configuration
 # Railway will check this endpoint to ensure the service is healthy

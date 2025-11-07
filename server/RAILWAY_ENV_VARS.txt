@@ -1,0 +1,25 @@
+# Copy these variables into Railway Raw Editor (ENV tab)
+
+# ============================================
+# FOR jobq-api SERVICE
+# ============================================
+MONGO_URI=mongodb+srv://ramajan:4KPsZIIvuX9qIsxE@cluster0.dsqzsys.mongodb.net/taskqueue?retryWrites=true&w=majority
+REDIS_URL=rediss://default:5e66f7t6f4ce@jvtz1kxub.dragonflydb.cloud:6385
+JWT_SECRET=fPBvBBpAu+JLY00PJO112+FLe1+LSNFxLw+HMu71Tf8=
+JWT_EXPIRE=7d
+NODE_ENV=production
+LOG_LEVEL=info
+LOG_DIR=/tmp/logs
+TMP_DIR=/tmp
+PORT=3000
+
+# ============================================
+# FOR jobq-worker SERVICE
+# ============================================
+MONGO_URI=mongodb+srv://ramajan:4KPsZIIvuX9qIsxE@cluster0.dsqzsys.mongodb.net/taskqueue?retryWrites=true&w=majority
+REDIS_URL=rediss://default:5e66f7t6f4ce@jvtz1kxub.dragonflydb.cloud:6385
+NODE_ENV=production
+LOG_LEVEL=info
+LOG_DIR=/tmp/logs
+TMP_DIR=/tmp
+
